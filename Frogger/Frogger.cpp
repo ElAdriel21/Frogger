@@ -1,19 +1,64 @@
-// Frogger.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
-//
-
 #include <iostream>
+#include <SFML/Audio.hpp>
+#include <SFML/Graphics.hpp>
 
 int main()
 {
-    std::cout << "HOLA MUNDO";
+    sf::RenderWindow window(sf::VideoMode(1024, 600), "Frogger");
+
+    sf::Texture redPointTexture;
+    redPointTexture.loadFromFile("rana.png");
+
+    sf::Sprite objeto(redPointTexture);
+
+    int x = 250, y = 250;
+
+    while (window.isOpen()) {
+        sf::Event event;
+
+        objeto.setPosition(250, 250);
+
+        while (window.pollEvent(event)) {
+
+            if (event.type == sf::Event::Closed) {
+                window.close();
+            }
+
+            if (event.type == sf::Event::KeyPressed) {
+
+                if (event.key.code == sf::Keyboard::A) {
+                    if (x > 0) {
+                        x -= 2;
+                    }
+                }
+
+                if (event.key.code == sf::Keyboard::S) {
+                    if (y < 600 - 128) {
+                        y += 2;
+                    }
+                }
+
+                if (event.key.code == sf::Keyboard::D) {
+                    if (x < 1024 - 128) {
+                        x += 2;
+                    }
+                }
+
+                if (event.key.code == sf::Keyboard::W) {
+                    if (y > 0) {
+                        y -= 2;
+                    }
+                }
+            }
+
+
+        }
+
+        window.clear();
+
+        objeto.setPosition(x, y);
+        window.draw(objeto);
+
+        window.display();
+    }
 }
-
-// Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
-// Depurar programa: F5 o menú Depurar > Iniciar depuración
-
-// Sugerencias para primeros pasos: 1. Use la ventana del Explorador de soluciones para agregar y administrar archivos
-//   2. Use la ventana de Team Explorer para conectar con el control de código fuente
-//   3. Use la ventana de salida para ver la salida de compilación y otros mensajes
-//   4. Use la ventana Lista de errores para ver los errores
-//   5. Vaya a Proyecto > Agregar nuevo elemento para crear nuevos archivos de código, o a Proyecto > Agregar elemento existente para agregar archivos de código existentes al proyecto
-//   6. En el futuro, para volver a abrir este proyecto, vaya a Archivo > Abrir > Proyecto y seleccione el archivo .sln

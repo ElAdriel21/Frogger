@@ -1,0 +1,4 @@
+﻿  Frogger.cpp
+C:\Users\usuario\Desktop\sfml\Frogger\Frogger\Frogger.cpp(59,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\usuario\Desktop\sfml\Frogger\Frogger\Frogger.cpp(59,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  Frogger.vcxproj -> C:\Users\usuario\Desktop\sfml\Frogger\x64\Debug\Frogger.exe
