@@ -1,7 +1,8 @@
 #include <iostream>
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
-
+#include "vehiculo.h"
+#include "automovil.h"
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(1024, 600), "Frogger");
@@ -9,14 +10,16 @@ int main()
     sf::Texture redPointTexture;
     redPointTexture.loadFromFile("rana.png");
 
-    sf::Sprite objeto(redPointTexture);
+    sf::Sprite rana(redPointTexture);
 
     int x = 250, y = 250;
 
     while (window.isOpen()) {
         sf::Event event;
 
-        objeto.setPosition(250, 250);
+        vehiculo *newAutomovil = new automovil(1,1);
+
+        rana.setPosition(250, 250);
 
         while (window.pollEvent(event)) {
 
@@ -56,8 +59,8 @@ int main()
 
         window.clear();
 
-        objeto.setPosition(x, y);
-        window.draw(objeto);
+        rana.setPosition(x, y);
+        window.draw(rana);
 
         window.display();
     }
