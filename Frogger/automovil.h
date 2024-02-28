@@ -6,16 +6,18 @@ public:
 
 	automovil(float newx, float newy)
 	{
-		this->velocidad = 0.5;
-		this->vehiculoTexture.loadFromFile("automovil.png");
-		this->x = newx;
-		this->y = newy;
+		velocidad = 0.5;
+		vehiculoTexture.loadFromFile("vehiculo.png");
+		x = newx;
+		y = newy;
+		vehiculoSprite.setTexture(vehiculoTexture);
+		vehiculoSprite.setScale(0.2f, 0.2f);
 	}
 
-	float Movimiento()
+	void Movimiento() override
 	{
-		x -= 2;
-		return (x);
+		x -= 0.01;
+		vehiculoSprite.setPosition(x, y);
 	}
 };
 

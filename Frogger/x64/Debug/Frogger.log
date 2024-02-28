@@ -1,4 +1,8 @@
 ﻿  Frogger.cpp
-C:\Users\usuario\Desktop\sfml\Frogger\Frogger\Frogger.cpp(59,31): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\usuario\Desktop\sfml\Frogger\Frogger\Frogger.cpp(59,28): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\usuario\Desktop\sfml\Frogger\Frogger\automovil.h(19,1): warning C4305: '-=': truncamiento de 'double' a 'float'
+C:\Users\usuario\Desktop\sfml\Frogger\Frogger\Frogger.cpp(67,29): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+C:\Users\usuario\Desktop\sfml\Frogger\Frogger\Frogger.cpp(67,26): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  automovil.cpp
+C:\Users\usuario\Desktop\sfml\Frogger\Frogger\automovil.h(19,1): warning C4305: '-=': truncamiento de 'double' a 'float'
+  Generando código...
   Frogger.vcxproj -> C:\Users\usuario\Desktop\sfml\Frogger\x64\Debug\Frogger.exe

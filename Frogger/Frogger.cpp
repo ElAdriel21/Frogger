@@ -11,13 +11,16 @@ int main()
     redPointTexture.loadFromFile("rana.png");
 
     sf::Sprite rana(redPointTexture);
+    rana.setScale(0.5f, 0.5f);
+
+    vehiculo* newAutomovil = new automovil(250, 250); //automovil
+    vehiculo* newCamioneta = new automovil(1, 1); //automovil
+    vehiculo* newCamion = new automovil(1, 1); //automovil
 
     int x = 250, y = 250;
 
     while (window.isOpen()) {
         sf::Event event;
-
-        vehiculo *newAutomovil = new automovil(1,1);
 
         rana.setPosition(250, 250);
 
@@ -31,25 +34,25 @@ int main()
 
                 if (event.key.code == sf::Keyboard::A) {
                     if (x > 0) {
-                        x -= 2;
+                        x -= 3;
                     }
                 }
 
                 if (event.key.code == sf::Keyboard::S) {
                     if (y < 600 - 128) {
-                        y += 2;
+                        y += 3;
                     }
                 }
 
                 if (event.key.code == sf::Keyboard::D) {
                     if (x < 1024 - 128) {
-                        x += 2;
+                        x += 3;
                     }
                 }
 
                 if (event.key.code == sf::Keyboard::W) {
                     if (y > 0) {
-                        y -= 2;
+                        y -= 3;
                     }
                 }
             }
@@ -57,10 +60,14 @@ int main()
 
         }
 
+        newAutomovil->Movimiento();
+
         window.clear();
 
         rana.setPosition(x, y);
+
         window.draw(rana);
+        newAutomovil->Dibujar(window);
 
         window.display();
     }

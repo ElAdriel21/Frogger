@@ -10,15 +10,21 @@ public:
 	float velocidad, x, y;
 
 	sf::Texture vehiculoTexture;
+	sf::Sprite vehiculoSprite;
 
 	vehiculo()
 	{
 
 	}
 
-	void Movimiento()
+	void virtual Movimiento()
 	{
 
+	}
+
+	void Dibujar(sf::RenderWindow& window)
+	{
+		window.draw(vehiculoSprite);
 	}
 };
 
