@@ -25,5 +25,35 @@ int main()
     vehiculo* newCamioneta = new camioneta();
     vehiculo* newCamion = new camion();
 
+    while (true)
+    {
+        newAutomovil->Movimiento();
+        newCamioneta->Movimiento();
+        newCamion->Movimiento();
+
+        system("cls");
+        for (int i = 0; i < ancho; i++)
+        {
+            gotoxy(i, 0);
+            std::cout << "-";
+            gotoxy(i, alto);
+            std::cout << "-";
+        }
+        for (int i = 1; i < alto; i++)
+        {
+            gotoxy(0, i);
+            std::cout << "|";
+            gotoxy(ancho, i);
+            std::cout << "|";
+        }
+
+        newAutomovil->Mostrar();
+        newCamioneta->Mostrar();
+        newCamion->Mostrar();
+
+
+        Sleep(100); 
+    }
+
     return 0;
 }

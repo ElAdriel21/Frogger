@@ -1,18 +1,23 @@
-#include <iostream>
-#include <conio.h>
-#include <windows.h>
+#pragma once
+#include<iostream>
 
-class vehiculo 
-{
+class vehiculo {
 protected:
     int x, y;
-    int velocidad;
+    int velocidad; 
 
 public:
 
-    vehiculo()
+    vehiculo(int newX = 0, int newY = 0, int newVelocidad = 1)
     {
+        x = newX;
+        y = newY;
+        velocidad = newVelocidad;
+    }
 
+    virtual void Mostrar() 
+    {
+        std::cout << "Vehiculo en posicion (" << x << ", " << y << ")" << std::endl;
     }
 
     virtual void Movimiento()
@@ -20,4 +25,3 @@ public:
 
     }
 };
-

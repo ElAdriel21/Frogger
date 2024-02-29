@@ -1,14 +1,16 @@
-#include <iostream>
-#include <conio.h>
-#include <windows.h>
+#pragma once
 #include "vehiculo.h"
 
-class camion : public vehiculo 
-{
+class camion : public vehiculo {
 public:
 
-    void Movimiento() override 
+    camion()
     {
+
+    }
+
+    void Movimiento() override {
+
         x += velocidad * 2;
     }
 };
