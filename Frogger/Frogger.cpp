@@ -14,19 +14,82 @@ void gotoxy(int x, int y)
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 
-int main() 
-{
-    int ancho = 40; 
-    int alto = 20; 
-    int puntaje = 0;
-    char tecla; 
+class Rana {
+private:
+    int x, y;
+    int limiteIzquierdo, limiteDerecho, limiteSuperior, limiteInferior;
 
-    vehiculo* newAutomovil = new automovil();
-    vehiculo* newCamioneta = new camioneta();
-    vehiculo* newCamion = new camion();
+public:
+
+    Rana(int newX, int newY, int ancho, int alto)
+    {
+        x = newX;
+        y = newY;
+        limiteIzquierdo = 1;
+        limiteDerecho = ancho - 1;
+        limiteSuperior = 1;
+        limiteInferior = alto - 1;
+    }
+
+    void Mostrar()
+    {
+        gotoxy(x, y);
+        std::cout << "O";
+    }
+
+    void Mover(char tecla)
+    {
+        switch (tecla) {
+        case 'a':
+            if (x > limiteIzquierdo)
+                x--;
+            break;
+        case 'd':
+            if (x < limiteDerecho)
+                x++;
+            break;
+        case 'w':
+            if (y > limiteSuperior)
+                y--;
+            break;
+        case 's':
+            if (y < limiteInferior)
+                y++;
+            break;
+        }
+    }
+
+    int GetY()
+    {
+        return(y);
+    }
+
+    int GetX()
+    {
+        return(x);
+    }
+};
+
+int main()
+{
+    int ancho = 40;
+    int alto = 20;
+    int puntaje = 0;
+    char tecla;
+
+    vehiculo* newAutomovil = new automovil(25,25);
+    vehiculo* newCamioneta = new camioneta(20,30);
+    vehiculo* newCamion = new camion(15,-5);
+
+    Rana rana(ancho / 2, alto - 2, ancho, alto);
 
     while (true)
     {
+        if (_kbhit()) {
+            tecla = _getch();
+            rana.Mover(tecla);
+        }
+
         newAutomovil->Movimiento();
         newCamioneta->Movimiento();
         newCamion->Movimiento();
@@ -47,13 +110,18 @@ int main()
             std::cout << "|";
         }
 
+        rana.Mostrar();
         newAutomovil->Mostrar();
         newCamioneta->Mostrar();
         newCamion->Mostrar();
 
 
-        Sleep(100); 
+        Sleep(100);
     }
+
+    delete newAutomovil;
+    delete newCamioneta;
+    delete newCamion;
 
     return 0;
 }

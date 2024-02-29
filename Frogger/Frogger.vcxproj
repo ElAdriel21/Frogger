@@ -134,12 +134,14 @@
     <ClCompile Include="camion.cpp" />
     <ClCompile Include="camioneta.cpp" />
     <ClCompile Include="Frogger.cpp" />
+    <ClCompile Include="rana.cpp" />
     <ClCompile Include="vehiculo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="automovil.h" />
     <ClInclude Include="camion.h" />
     <ClInclude Include="camioneta.h" />
+    <ClInclude Include="rana.h" />
     <ClInclude Include="vehiculo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

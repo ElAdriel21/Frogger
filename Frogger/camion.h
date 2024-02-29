@@ -4,14 +4,21 @@
 class camion : public vehiculo {
 public:
 
-    camion()
+    camion(int newX, int newY)
     {
-
+        x = newX;
+        y = newY;
     }
 
     void Movimiento() override {
 
-        x += velocidad * 2;
+        x += 1;
+        Mostrar();
+    }
+
+    void Mostrar() override
+    {
+        std::cout << "OOOO";
     }
 };
 

@@ -1,18 +1,18 @@
 #pragma once
 #include<iostream>
-
+#include<iostream>
+#include<conio.h>
+#include<windows.h>
 class vehiculo {
 protected:
     int x, y;
-    int velocidad; 
 
 public:
 
-    vehiculo(int newX = 0, int newY = 0, int newVelocidad = 1)
+    vehiculo(int newX = 0, int newY = 0)
     {
         x = newX;
         y = newY;
-        velocidad = newVelocidad;
     }
 
     virtual void Mostrar() 
@@ -23,5 +23,13 @@ public:
     virtual void Movimiento()
     {
 
+    }
+
+    void gotoxy(int x, int y)
+    {
+        COORD coord;
+        coord.X = x;
+        coord.Y = y;
+        SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
     }
 };
