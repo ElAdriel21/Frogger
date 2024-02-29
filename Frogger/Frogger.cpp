@@ -70,12 +70,6 @@ public:
     }
 };
 
-void MostrarObstaculo(int x, int y)
-{
-    gotoxy(x, y);
-    std::cout << "#"; 
-}
-
 int main()
 {
     int ancho = 40;
