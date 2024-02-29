@@ -70,6 +70,12 @@ public:
     }
 };
 
+void MostrarObstaculo(int x, int y)
+{
+    gotoxy(x, y);
+    std::cout << "#"; 
+}
+
 int main()
 {
     int ancho = 40;
@@ -77,9 +83,9 @@ int main()
     int puntaje = 0;
     char tecla;
 
-    vehiculo* newAutomovil = new automovil(25,25);
-    vehiculo* newCamioneta = new camioneta(20,30);
-    vehiculo* newCamion = new camion(15,-5);
+    vehiculo* newAutomovil = new automovil(-2, 5);
+    vehiculo* newCamioneta = new camioneta(42, 10);
+    vehiculo* newCamion = new camion(-2, 15);
 
     Rana rana(ancho / 2, alto - 2, ancho, alto);
 
@@ -93,6 +99,19 @@ int main()
         newAutomovil->Movimiento();
         newCamioneta->Movimiento();
         newCamion->Movimiento();
+
+        if (newAutomovil->GetX() > ancho + 2)
+        {
+            newAutomovil->SetX(-2);
+        }
+        if (newCamioneta->GetX() < -2)
+        {
+            newCamioneta->SetX(42);
+        }
+        if (newCamion->GetX() > ancho + 2)
+        {
+            newCamion->SetX(-2);
+        }
 
         system("cls");
         for (int i = 0; i < ancho; i++)
@@ -114,7 +133,6 @@ int main()
         newAutomovil->Mostrar();
         newCamioneta->Mostrar();
         newCamion->Mostrar();
-
 
         Sleep(100);
     }

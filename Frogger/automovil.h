@@ -18,6 +18,7 @@ public:
 
     void Mostrar() override
     {
+        gotoxy(x, y);
         std::cout << "°°";
     }
 };

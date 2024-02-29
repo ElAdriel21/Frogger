@@ -17,7 +17,7 @@ public:
 
     virtual void Mostrar() 
     {
-        std::cout << "Vehiculo en posicion (" << x << ", " << y << ")" << std::endl;
+        
     }
 
     virtual void Movimiento()
@@ -31,5 +31,25 @@ public:
         coord.X = x;
         coord.Y = y;
         SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
+    }
+
+    int GetX()
+    {
+        return(x);
+    }
+
+    int GetY()
+    {
+        return(y);
+    }
+
+    void SetX(int newX)
+    {
+        x = newX;
+    }
+
+    void SetY(int newY)
+    {
+        y = newY;
     }
 };
