@@ -1,22 +1,15 @@
-#pragma once
+#include <iostream>
+#include <conio.h>
+#include <windows.h>
 #include "vehiculo.h"
-class camioneta : public vehiculo
+
+class camioneta : public vehiculo 
 {
 public:
 
-	camioneta(float newx, float newy)
-	{
-		velocidad = 0.3;
-		vehiculoTexture.loadFromFile("vehiculo.png");
-		x = newx;
-		y = newy;
-		vehiculoSprite.setTexture(vehiculoTexture);
-	}
-
-	void Movimiento()
-	{
-		x -= 2;
-		vehiculoSprite.setPosition(x, y);
-	}
+    void Movimiento() override 
+    {
+        x -= velocidad;
+    }
 };
 

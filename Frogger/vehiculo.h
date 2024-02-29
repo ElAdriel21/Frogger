@@ -1,30 +1,23 @@
-#pragma once
 #include <iostream>
-#include <SFML/Audio.hpp>
-#include <SFML/Graphics.hpp>
+#include <conio.h>
+#include <windows.h>
 
-class vehiculo
+class vehiculo 
 {
+protected:
+    int x, y;
+    int velocidad;
+
 public:
 
-	float velocidad, x, y;
+    vehiculo()
+    {
 
-	sf::Texture vehiculoTexture;
-	sf::Sprite vehiculoSprite;
+    }
 
-	vehiculo()
-	{
+    virtual void Movimiento()
+    {
 
-	}
-
-	void virtual Movimiento()
-	{
-
-	}
-
-	void Dibujar(sf::RenderWindow& window)
-	{
-		window.draw(vehiculoSprite);
-	}
+    }
 };
 
