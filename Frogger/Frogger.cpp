@@ -68,6 +68,17 @@ public:
     {
         return(x);
     }
+
+    bool DetectarColisionConVehiculos(int vehiculoX, int vehiculoY)
+    {
+        return (x == vehiculoX && y == vehiculoY);
+    }
+
+    void SetPosition(int newX, int newY)
+    {
+        x = newX;
+        y = newY;
+    }
 };
 
 int main()
@@ -75,6 +86,7 @@ int main()
     int ancho = 40;
     int alto = 20;
     int puntaje = 0;
+    int vidas = 3;
     char tecla;
 
     vehiculo* newAutomovil = new automovil(-2, 5);
@@ -111,7 +123,7 @@ int main()
         for (int i = 0; i < ancho; i++)
         {
             gotoxy(i, 0);
-            std::cout << "-";
+            std::cout << "#";
             gotoxy(i, alto);
             std::cout << "-";
         }
@@ -127,6 +139,47 @@ int main()
         newAutomovil->Mostrar();
         newCamioneta->Mostrar();
         newCamion->Mostrar();
+
+        gotoxy(0, alto + 2);
+        std::cout << "Controles: A (izquierda), D (derecha), W (arriba), S (abajo)";
+        gotoxy(0, alto + 3);
+        std::cout << "Puntaje: " << puntaje;
+        gotoxy(0, alto + 4);
+        if (vidas == 3)
+        {
+            std::cout << "Vidas: [|||]";
+        }
+        else if (vidas == 2)
+        {
+            std::cout << "Vidas: [|| ]";
+        }
+        else if (vidas == 2)
+        {
+            std::cout << "Vidas: [|  ]";
+        }
+        else
+        {
+            std::cout << "Vida: []";
+        }
+
+        if (rana.DetectarColisionConVehiculos(newAutomovil->GetX(), newAutomovil->GetY()) ||
+            rana.DetectarColisionConVehiculos(newCamioneta->GetX(), newCamioneta->GetY()) ||
+            rana.DetectarColisionConVehiculos(newCamion->GetX(), newCamion->GetY()))
+        {
+            rana.SetPosition(ancho / 2, alto - 2);
+            vidas -= 1;
+            if (vidas == 0)
+            {
+                puntaje = 0;
+                vidas = 3;
+            }
+        }
+
+        if (rana.GetY() < 3)
+        {
+            puntaje += 10;
+            rana.SetPosition(ancho / 2, alto - 2);
+        }
 
         Sleep(100);
     }
